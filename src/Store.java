@@ -1,19 +1,23 @@
 public class Store {
+    // Definir constantes para el umbral de ventas y los productos
+    private static final int salesThreshold = 50;
+    private static final int[] productosPrices = {15, 10, 5}; // Precios de productos
+    private static final int[] ProductQuantities = {2, 3, 4}; // Cantidades vendidas de cada producto
+
     public static void main(String[] args) {
-        int p1 = 15;
-        int p2 = 10;
-        int p3 = 5;
+        int totalSales = 0;
 
-        int total1 = p1 * 2;
-        int total2 = p2 * 3;
-        int total3 = p3 * 4;
+        // Calcular las ventas totales usando un bucle
+        for (int i = 0; i < productosPrices.length; i++) {
+            totalSales += productosPrices[i] * ProductQuantities[i];
+        }
 
-        int totalSales = total1 + total2 + total3;
-
-        if (totalSales > 50) {
+        // Evaluar el rendimiento de las ventas
+        if (totalSales > salesThreshold) {
             System.out.println("Good sales performance");
         } else {
             System.out.println("Low sales performance");
         }
     }
 }
+
